@@ -11,25 +11,25 @@ El Web service cuenta con 2 funciones que se tienen que ejecutar en un orden con
 
 > ###  La estructura de la función es la siguiente:
 
-  >>|Campo|Tipo|NULL|Descripción|
-  |---|---|:---:|---|
-  |key|string|NO|Llave acceso|
-  |clicod|char (11)|NO|Nit Cliente|
-  |clinom|char (50)|NO|Nombre|
-  |clidir|char (50)|NO|Dirección|
-  |client|char (50)|NO|Dir. Envió|
-  |clitel|char (15)|NO|Teléfono|
-  |clipob|char (5 )|NO|Población|
-  |climcu|Smallint (2 )|SI|Mes Cumpleaños|
-  |clidcu|Smallint (2 )|SI|Día Cumpleaños|
-  |clines|char (30)|NO|Contacto|
-  |cliobs|char (70)|SI|Observación|
-  |clifax|char (15)|SI|Fax|
-  |clicel|char (15)|SI|Celular|
-  |clireg|char (1 )|NO|Tipo de Cliente(Persona Natural 1,Empresa 2)|
-  |clitpr|char (30)|SI|Alias|
-  |clirgn|char (3 )|NO|Regional|
-  |clieml|char (50)|NO|Correo|
+>>|Campo|Tipo|NULL|Descripción|
+|---|---|:---:|---|
+|key|string|NO|Llave acceso|
+|clicod|char (11)|NO|Nit Cliente|
+|clinom|char (50)|NO|Nombre|
+|clidir|char (50)|NO|Dirección|
+|client|char (50)|NO|Dir. Envió|
+|clitel|char (15)|NO|Teléfono|
+|clipob|char (5 )|NO|Población|
+|climcu|Smallint (2 )|SI|Mes Cumpleaños|
+|clidcu|Smallint (2 )|SI|Día Cumpleaños|
+|clines|char (30)|NO|Contacto|
+|cliobs|char (70)|SI|Observación|
+|clifax|char (15)|SI|Fax|
+|clicel|char (15)|SI|Celular|
+|clireg|char (1 )|NO|Tipo de Cliente(Persona Natural 1,Empresa 2)|
+|clitpr|char (30)|SI|Alias|
+|clirgn|char (3 )|NO|Regional|
+|clieml|char (50)|NO|Correo|
 
     > El valor de respuesta es un array que contiene el mensaje de respuesta "msn". Los valores de respuesta son los siguientes:
     > * **OK**: *Sucede cuando la transacción ha sido existosa.*
