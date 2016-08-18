@@ -8,7 +8,7 @@ El presente documento constituye la descripción técnica de la plataforma de **
 ## Información sobre el recurso
 
 El Web service da acceso a al fichero WSDL, a la página de ***WS Market Place Automundial S.A.***.
->El fichero WSDL (SOAP API Descriptor Lenguaje) es un fichero XML que indica principalmente, qué formato utilizar en la conformación de una petición al servicio y el significado de la petición. Se puede salvar en local.
+>El fichero WSDL (SOAP API Descriptor Lenguaje) es un fichero XML que indica principalmente, qué formato utilizar en la conformación de una petición al servicio y el significado de la petición.
 
 El Web service cuenta con 2 funciones que se tienen que ejecutar en un orden consecuente que a continuación se especifica.
 
