@@ -5,7 +5,11 @@ El presente documento constituye la descripción técnica de la plataforma de **
 ## Recurso URL
 #### http://mail.automundial.com.co:89/desarrollos/reporteweb/WebServices/wsMarketPlace.php
 
-## Información sobre los recursos
+## Información sobre el recurso
+
+El Web service da acceso a al fichero WSDL, a la página de ***WS Market Place Automundial S.A.***.
+>El fichero WSDL (SOAP API Descriptor Lenguaje) es un fichero XML que indica principalmente, qué formato utilizar en la conformación de una petición al servicio y el significado de la petición. Se puede salvar en local.
+
 El Web service cuenta con 2 funciones que se tienen que ejecutar en un orden consecuente que a continuación se especifica.
 
 * Función 1, ***ValCliente***: *La siguiente función recibe los parámetros del cliente en un array, y verifica la existencia del mismo. Al momento de realizar la verificación si el cliente existe se realiza un proceso de validación y actualización al momento de encontrar alguna información nueva, si no, entonces se procede a realizar la creación de cliente con respecto a los parámetros recibidos.*
