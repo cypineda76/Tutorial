@@ -14,9 +14,9 @@ El Web service cuenta con 2 funciones que se tienen que ejecutar en un orden con
 
 * Función 1, ***ValCliente***: *La siguiente función recibe los parámetros del cliente en un array, y verifica la existencia del mismo. Al momento de realizar la verificación si el cliente existe se realiza un proceso de validación y actualización al momento de encontrar alguna información nueva, si no, entonces se procede a realizar la creación de cliente con respecto a los parámetros recibidos.*
 
-> ###  La estructura de la función es la siguiente:
+###  La estructura de la función es la siguiente:
 
->>|Campo|Tipo|NULL|Descripción|
+|Campo|Tipo|NULL|Descripción|
 |---|---|:---:|---|
 |key|string|NO|Llave acceso|
 |clicod|char (11)|NO|Nit Cliente|
@@ -46,8 +46,8 @@ El Web service cuenta con 2 funciones que se tienen que ejecutar en un orden con
 * Función 2, ***GenPedido***: *La función se debe ejecutar luego de haber recibido como respuesta de la función **ValCliente** si y solo si la respuesta de esa función es **"OK"**.*
 *La función GenPedido tiene como finalidad recibir información concerniente con el pedido es decir se debe pasar mediante un array la información del encabezado y detalle del pedido.*
 
-> ###  La estructura de la funcion es la siguiente:
->>|Campo|Tipo|NULL|Descripción|
+###  La estructura de la funcion es la siguiente:
+|Campo|Tipo|NULL|Descripción|
 |---|---|:---:|---|
 |key|string|NO|Llave acceso|
 |cotcli|char(11)|NO|Nit Cliente|
@@ -63,11 +63,12 @@ El Web service cuenta con 2 funciones que se tienen que ejecutar en un orden con
 |cotorc|char(20)|SI|Orden compra|
 |cotweb|int|NO|Código Pedido MarketPlace|
 |cotidtran| char(40)|NO|# Transacción|
-|cotdet|
->>>  El detalle debe ser un array el cual debe ir incluido dentro
+|cotdet|array|NO|Anexo informacion del array del detalle del pedido en la siguiente tabla|
+
+>El detalle debe ser un array el cual debe ir incluido dentro
 
 
->>>|Campo|Tipo|NULL|Descripción|
+|Campo|Tipo|NULL|Descripción|
 |---|---|:---:|---|
 |dettiq  |int           |SI|# Tiquete|
 |detart  |char      (12)|NO|Código Articulo|
