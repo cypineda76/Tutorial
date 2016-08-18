@@ -2,9 +2,10 @@
 
 El presente documento constituye la descripción técnica de la plataforma de **Web service** desarrollada para promover el acceso desde el **E-Commerce Automundial.** La documentación está orientada a integrar los procesos internos de tesorería, facturación, despacho; a través del aplicativo interno de **Pedidos** para proveer una trazabilidad de una compra generada a través de la plataforma E-Commerce Automundial.
 
-# Recurso URL
-### http://mail.automundial.com.co:89/desarrollos/reporteweb/WebServices/wsMarketPlace.php
+## Recurso URL
+#### http://mail.automundial.com.co:89/desarrollos/reporteweb/WebServices/wsMarketPlace.php
 
+## Información sobre los recursos
 El Web service cuenta con 2 funciones que se tienen que ejecutar en un orden consecuente que a continuación se especifica.
 
 * Función 1, ***ValCliente***: *La siguiente función recibe los parámetros del cliente en un array, y verifica la existencia del mismo. Al momento de realizar la verificación si el cliente existe se realiza un proceso de validación y actualización al momento de encontrar alguna información nueva, si no, entonces se procede a realizar la creación de cliente con respecto a los parámetros recibidos.*
