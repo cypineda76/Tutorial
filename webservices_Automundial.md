@@ -10,6 +10,7 @@ El Web service cuenta con 2 funciones que se tienen que ejecutar en un orden con
 * Función 1, ***ValCliente***: *La siguiente función recibe los parámetros del cliente en un array, y verifica la existencia del mismo. Al momento de realizar la verificación si el cliente existe se realiza un proceso de validación y actualización al momento de encontrar alguna información nueva, si no, entonces se procede a realizar la creación de cliente con respecto a los parámetros recibidos.*
 
 > ###  La estructura de la función es la siguiente:
+
   >>|Campo|Tipo|NULL|Descripción|
   |---|---|:---:|---|
   |key|string|NO|Llave acceso|
@@ -59,6 +60,7 @@ El Web service cuenta con 2 funciones que se tienen que ejecutar en un orden con
 |cotidtran| char(40)|NO|# Transacción|
 |cotdet|
 >>>  El detalle debe ser un array el cual debe ir incluido dentro
+
 
 >>>  |Campo|Tipo|NULL|Descripción|
 |---|---|:---:|---|
