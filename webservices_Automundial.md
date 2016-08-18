@@ -31,12 +31,12 @@ El Web service cuenta con 2 funciones que se tienen que ejecutar en un orden con
 |clirgn|char (3 )|NO|Regional|
 |clieml|char (50)|NO|Correo|
 
-    > El valor de respuesta es un array que contiene el mensaje de respuesta "msn". Los valores de respuesta son los siguientes:
-    > * **OK**: *Sucede cuando la transacción ha sido existosa.*
-    > * **ERROR**: *Sucede cuando se presenta un error al realizar la transacción y tiene las siguientes varintes.*
-    >     * No se puede grabar el cliente
-    >     * No se puede actualizar el cliente
-    >     * Token no valido
+> El valor de respuesta es un array que contiene el mensaje de respuesta "msn". Los valores de respuesta son los siguientes:
+> * **OK**: *Sucede cuando la transacción ha sido existosa.*
+> * **ERROR**: *Sucede cuando se presenta un error al realizar la transacción y tiene las siguientes varintes.*
+>     * No se puede grabar el cliente
+>     * No se puede actualizar el cliente
+>     * Token no valido
 
 * Función 2, ***GenPedido***: *La función se debe ejecutar luego de haber recibido como respuesta de la función **ValCliente** si y solo si la respuesta de esa función es **"OK"**.*
 *La función GenPedido tiene como finalidad recibir información concerniente con el pedido es decir se debe pasar mediante un array la información del encabezado y detalle del pedido.*
@@ -62,7 +62,7 @@ El Web service cuenta con 2 funciones que se tienen que ejecutar en un orden con
 >>>  El detalle debe ser un array el cual debe ir incluido dentro
 
 
->>>  |Campo|Tipo|NULL|Descripción|
+>>>|Campo|Tipo|NULL|Descripción|
 |---|---|:---:|---|
 |dettiq  |int           |SI|# Tiquete|
 |detart  |char      (12)|NO|Código Articulo|
