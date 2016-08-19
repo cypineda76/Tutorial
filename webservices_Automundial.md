@@ -89,62 +89,26 @@ El Web service cuenta con 2 funciones que se tienen que ejecutar en un orden con
 >     * Error al insertar el detalle del pedido
 >     * Token no valido
 
-### Ejemplo
+### Ejemplo desarrollado en **PHP**
 <pre><code>
-<?
-// incluyo nusoap
+require_once('../lib/common/nusoap-0.9.5/lib/nusoap.php');
+header('Content-Type: text/html; charset=ISO-8859-1');
+$cliente = new nusoap_client('http://ctw.automundial.com.co/desarrollos/reporteweb/WebServices/wsMarketPlace.php');
+$sandkey = crypt('Crypt*Auto.99858Key'.date("Ymd"), '$1$cK8pdNwY1$') . "\n";
 $clientes[0] = array('clicod' => "1087997536", 'clinom' => "alexander", 'clidir' => "AV Simpreviva 123", 'client' => "AV Falsa 123", 'clipob' => "11001", 'clitel' => "4641544", 'climcu' => "", 'clidcu' => "", 'clines' => "alexander", 'cliobs' => "Cliente WEBSERVICE Pagina Automundial", 'clifax' => "", 'clicel' => "", 'clireg' => "1", 'clitpr' => "", 'clirgn' => "001", 'clieml' => "info@automundial.co");
 print_r($clientes);
 $cantidad[0] = array("dettiq"=>"", "detart"=>"2368", "detcan"=>"1", "detcre"=>"930172.4137931", "detiva"=>"172640", "detdes"=>"0", "dettot"=>"1102812.4137931", "detpiva"=>"1.16", "detpdes"=>"0", "detcon"=>"112", "detpma"=>"0");
 $cantidad[1] = array("dettiq"=>"", "detart"=>"2931", "detcan"=>"5", "detcre"=>"1339336", "detiva"=>"969679", "detdes"=>"127237", "dettot"=>"7030175", "detpiva"=>"16", "detpdes"=>"9.50", "detcon"=>"112", "detpma"=>"0");
 $detalle_productos = array();
 foreach ($cantidad as $c) {
-	//////////////Contruccion array de pedido////////////
-	$detalle=array(
-		'dettiq' =>$c['dettiq'], # Tiquete
-		'detart' =>$c['detart'], # Código Producto
-		'detcan' =>$c['detcan'], # Cantidad Producto
-		'detcre' =>number_format($c['detcre'],2, '.', ''), # Sub total Producto
-		'detiva' =>number_format($c['detiva'],2, '.', ''), # Iva Producto
-		'detdes' =>number_format($c['detdes'],2, '.', ''), # Descuento
-		'dettot' =>number_format($c['dettot'],2, '.', ''), # Total Producto
-		'detpiva' =>$c['detpiva'], # Porcentaje Iva
-		'detpdes' =>$c['detpdes'], # Porcentaje Descuento
-		'detcon' =>"112", # Concepto (112 - Compra Mercancía)
-		'detpma' =>"0", # Porcentaje DTCO Adicional
-	);
+	$detalle=array('dettiq' =>$c['dettiq'], 'detart' =>$c['detart'], 'detcan' =>$c['detcan'], 'detcre' =>number_format($c['detcre'],2, '.', ''), 'detiva' =>number_format($c['detiva'],2, '.', ''), 'detdes' =>number_format($c['detdes'],2, '.', ''), 'dettot' =>number_format($c['dettot'],2, '.', ''), 'detpiva' =>$c['detpiva'], 'detpdes' =>$c['detpdes'], 'detcon' =>"112", 'detpma' =>"0");
 	array_push($detalle_productos, $detalle);
 
 }
-$id_pedido='161';
+$id_pedido='161'; #Pedido de plataforma marketplace
 $transaccion='013779608';
-
-require_once('../lib/common/nusoap-0.9.5/lib/nusoap.php');
-header('Content-Type: text/html; charset=ISO-8859-1');
-
-$cliente = new nusoap_client('http://ctw.automundial.com.co/desarrollos/reporteweb/WebServices/wsMarketPlace.php');
-$sandkey = crypt('Crypt*Auto.99858Key'.date("Ymd"), '$1$cK8pdNwY1$') . "\n";
-
 $INCliente = array( "INCliente" =>
-	array(
-		'key' => $sandkey,          #Llave acceso
-		'clicod' => $clientes[0]['clicod'],             #Codigo
-		'clinom' => $clientes[0]['clinom'],            #Nombre
-		'clidir' => $clientes[0]['clidir'],      #Direccion
-		'client' => $clientes[0]['client'],            #Direccion Envio
-		'clipob' => $clientes[0]['clipob'],         #Direccion Envio
-		'clitel' => $clientes[0]['clitel'],       #Telefono
-		'climcu' => $clientes[0]['climcu'],               #Mes Cumpleaños
-		'clidcu' => $clientes[0]['clidcu'], #Dia Cumpleaños
-		'clines' => $clientes[0]['clines'],         #Contacto
-		'cliobs' => $clientes[0]['cliobs'],          #Observacion
-		'clifax' => $clientes[0]['clifax'],      #Fax
-		'clicel' => $clientes[0]['clicel'],               #Celular
-		'clireg' => $clientes[0]['clireg'],    #Tipo de Regimen(Persona Natural 1,Empresa 2)
-		'clitpr' => $clientes[0]['clitpr'],           #Alias
-		'clirgn' => $clientes[0]['clirgn'],               #Regional
-		'clieml' => $clientes[0]['clieml']       #Correo
-	)
+	array('key' => $sandkey, 'clicod' => $clientes[0]['clicod'], 'clinom' => $clientes[0]['clinom'], 'clidir' => $clientes[0]['clidir'], 'client' => $clientes[0]['client'], 'clipob' => $clientes[0]['clipob'], 'clitel' => $clientes[0]['clitel'], 'climcu' => $clientes[0]['climcu'], 'clidcu' => $clientes[0]['clidcu'], 'clines' => $clientes[0]['clines'], 'cliobs' => $clientes[0]['cliobs'], 'clifax' => $clientes[0]['clifax'], 'clicel' => $clientes[0]['clicel'], 'clireg' => $clientes[0]['clireg'], 'clitpr' => $clientes[0]['clitpr'], 'clirgn' => $clientes[0]['clirgn'], 'clieml' => $clientes[0]['clieml'])
 );
 /****Envia web service para la del cliente en automundial*/
 $resultado = $cliente->call('ValCliente',$INCliente);
@@ -174,5 +138,4 @@ if($resultado['msn']=="OK"){
 	$resultado2 = $cliente->call('GenPedido',$INPedido);
 }
 print_r($resultado2);
-?>
 </code></pre>
