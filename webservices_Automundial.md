@@ -91,7 +91,7 @@ El Web service cuenta con 2 funciones que se tienen que ejecutar en un orden con
 
 ### Ejemplo desarrollado en **PHP**
 <pre><code>
-require_once('../lib/common/nusoap-0.9.5/lib/nusoap.php');
+require_once('../lib/common/nusoap-0.9.5/lib/nusoap.php'); // incluyo libreria nusoap
 header('Content-Type: text/html; charset=ISO-8859-1');
 $cliente = new nusoap_client('http://ctw.automundial.com.co/desarrollos/reporteweb/WebServices/wsMarketPlace.php');
 $sandkey = crypt('Crypt*Auto.99858Key'.date("Ymd"), '$1$cK8pdNwY1$') . "\n";
@@ -110,29 +110,11 @@ $transaccion='013779608';
 $INCliente = array( "INCliente" =>
 	array('key' => $sandkey, 'clicod' => $clientes[0]['clicod'], 'clinom' => $clientes[0]['clinom'], 'clidir' => $clientes[0]['clidir'], 'client' => $clientes[0]['client'], 'clipob' => $clientes[0]['clipob'], 'clitel' => $clientes[0]['clitel'], 'climcu' => $clientes[0]['climcu'], 'clidcu' => $clientes[0]['clidcu'], 'clines' => $clientes[0]['clines'], 'cliobs' => $clientes[0]['cliobs'], 'clifax' => $clientes[0]['clifax'], 'clicel' => $clientes[0]['clicel'], 'clireg' => $clientes[0]['clireg'], 'clitpr' => $clientes[0]['clitpr'], 'clirgn' => $clientes[0]['clirgn'], 'clieml' => $clientes[0]['clieml'])
 );
-/****Envia web service para la del cliente en automundial*/
 $resultado = $cliente->call('ValCliente',$INCliente);
 print_r($resultado);
 if($resultado['msn']=="OK"){
 	$INPedido = array( "INPedido" =>
-		array(
-			'key' => $sandkey,          #Llave acceso
-			'cotcli' => $clientes[0]['clicod'],                              #Nit Cliente
-			'cottip' => "01",                                               #Forma de pago
-			'cotpln' => "01",                                              #Plazo
-			'cotcan' => "1",                                            #Cantidad Total
-			'cotdes' => number_format(0,2, '.', ''),                                     #Total Descuento
-			'cotiva' => number_format(96275.862068966,2, '.', ''),                                      #Total Iva
-			'cottot' => number_format(698000,2, '.', ''),      #Total de la compra
-			'cotobs' =>"Pedido de prueba", #Observación
-			'cotent' =>"Inmediato", #Forma de entrega
-			'cotsuc' =>"01", #Sucursal Cliente
-			'cotorc' => "",   #Orden de compra
-			'cotweb' =>$id_pedido, #Código Pedido MarketPlace
-			'cotidtran' =>$transaccion, #Código Seguimiento PSE
-			//'cotdet' =>$detalle_productos
-			'cotdet' => $detalle_productos
-		)
+		array('key' => $sandkey, 'cotcli' => $clientes[0]['clicod'], 'cottip' => "01", 'cotpln' => "01", 'cotcan' => "1", 'cotdes' => number_format(0,2, '.', ''), 'cotiva' => number_format(96275.862068966,2, '.', ''), 'cottot' => number_format(698000,2, '.', ''), 'cotobs' =>"Pedido de prueba", 'cotent' =>"Inmediato", 'cotsuc' =>"01", 'cotorc' => "", 'cotweb' =>$id_pedido, 'cotidtran' =>$transaccion, 'cotdet' => $detalle_productos)
 	);
 	/****Envia web service para la creacion del pedido*/
 	$resultado2 = $cliente->call('GenPedido',$INPedido);
