@@ -5,6 +5,10 @@ El presente documento constituye la descripción técnica de la plataforma de **
 ## Recurso URL
 #### http://mail.automundial.com.co:89/desarrollos/reporteweb/WebServices/wsMarketPlace.php
 
+## Token de acceso
+
+$sandkey = crypt('Crypt*Auto.99858Key'.date("Ymd"), '$1$cK8pdNwY1$') . "\n";
+
 ## Información sobre el recurso
 
 El Web service da acceso a al fichero WSDL, a la página de ***WS Market Place Automundial S.A.***.
@@ -91,6 +95,7 @@ El Web service cuenta con 2 funciones que se tienen que ejecutar en un orden con
 
 ### Ejemplo desarrollado en **PHP**
 <pre><code>
+´´´php
 require_once('../lib/common/nusoap-0.9.5/lib/nusoap.php'); // incluyo libreria nusoap
 header('Content-Type: text/html; charset=ISO-8859-1');
 $cliente = new nusoap_client('http://ctw.automundial.com.co/desarrollos/reporteweb/WebServices/wsMarketPlace.php');
