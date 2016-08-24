@@ -18,7 +18,7 @@ El Web service cuenta con 2 funciones que se tienen que ejecutar en un orden con
 
 * Función 1, ***ValCliente***: *La siguiente función recibe los parámetros del cliente en un array, y verifica la existencia del mismo. Al momento de realizar la verificación si el cliente existe se realiza un proceso de validación y actualización al momento de encontrar alguna información nueva, si no, entonces se procede a realizar la creación de cliente con respecto a los parámetros recibidos.*
 
-###  La estructura de la función es la siguiente:
+###  Los parámetros de la función es la siguiente:
 
 |Campo|Tipo|NULL|Descripción|
 |---|---|:---:|---|
@@ -47,10 +47,10 @@ El Web service cuenta con 2 funciones que se tienen que ejecutar en un orden con
 >     * No se puede actualizar el cliente
 >     * Token no valido
 
-* Función 2, ***GenPedido***: *La función se debe ejecutar luego de haber recibido como respuesta de la función **ValCliente** si y solo si la respuesta de esa función es **"OK"**.*
+* Función 2, ***GenPedido***: *La función se debe ejecutar luego de haber recibido como respuesta de la función ValCliente si y solo si la respuesta de esa función es* **"OK"**.
 *La función GenPedido tiene como finalidad recibir información concerniente con el pedido es decir se debe pasar mediante un array la información del encabezado y detalle del pedido.*
 
-###  La estructura de la funcion es la siguiente:
+###  Los parámetros de la función es la siguiente:
 |Campo|Tipo|NULL|Descripción|
 |---|---|:---:|---|
 |key|string|NO|Llave acceso|
@@ -74,8 +74,8 @@ El Web service cuenta con 2 funciones que se tienen que ejecutar en un orden con
 
 |Campo|Tipo|NULL|Descripción|
 |---|---|:---:|---|
-|dettiq  |int           |SI|# Tiquete|
-|detart  |char      (12)|NO|Código Articulo|
+|dettiq  |int           |SI|# Tiquete|
+|detart  |char      (12)|NO|Código Articulo|
 |detcan  |Decimal (16,2)|NO|Cantidad del ítem|
 |detcre  |Decimal (16,2)|NO|Precio Base Ítem|
 |detiva  |Decimal (16,2)|NO|Valor IVA Ítem|
@@ -83,19 +83,20 @@ El Web service cuenta con 2 funciones que se tienen que ejecutar en un orden con
 |dettot  |Decimal (16,2)|NO|Valor Total Ítem|
 |detpiva |Decimal  (5,2)|NO|Porcentaje IVA|
 |detpdes |Decimal  (5,2)|NO|Porcentaje Descuento|
-|detcon  |char       (3)|NO|Concepto (112 - Compra Mercancía)|
+|detcon  |char       (3)|NO|Concepto (112 - Compra Mercancía)|
 |detpma  |Decimal  (5,2)|NO|Porcentaje DTCO Adicional|
 
 >El valor de respuesta es un array que contiene el mensaje de respuesta "msn". Los valores de respuesta son los siguientes
 > * **Numero de pedido**: *Sucede cuando la transacción ha sido existosa y genera el numero de pedido interno.*
 > * **ERROR**: *Sucede cuando se presenta un error al realizar la transacción y tiene las siguientes varintes.*
->     * Errror al insertar el encabezado del pedido
+>     * Error al insertar el encabezado del pedido
 >     * Error al insertar el detalle del pedido
 >     * Token no valido
 
 ### Ejemplo desarrollado en **PHP**
-<pre><code>
-´´´php
+
+```php
+
 require_once('../lib/common/nusoap-0.9.5/lib/nusoap.php'); // incluyo libreria nusoap
 header('Content-Type: text/html; charset=ISO-8859-1');
 $cliente = new nusoap_client('http://ctw.automundial.com.co/desarrollos/reporteweb/WebServices/wsMarketPlace.php');
@@ -111,7 +112,7 @@ foreach ($cantidad as $c) {
 
 }
 $id_pedido='161'; #Pedido de plataforma marketplace
-$transaccion='013779608';
+$transaccion='013779608'; #Número de transacción al realizar la compra
 $INCliente = array( "INCliente" =>
 	array('key' => $sandkey, 'clicod' => $clientes[0]['clicod'], 'clinom' => $clientes[0]['clinom'], 'clidir' => $clientes[0]['clidir'], 'client' => $clientes[0]['client'], 'clipob' => $clientes[0]['clipob'], 'clitel' => $clientes[0]['clitel'], 'climcu' => $clientes[0]['climcu'], 'clidcu' => $clientes[0]['clidcu'], 'clines' => $clientes[0]['clines'], 'cliobs' => $clientes[0]['cliobs'], 'clifax' => $clientes[0]['clifax'], 'clicel' => $clientes[0]['clicel'], 'clireg' => $clientes[0]['clireg'], 'clitpr' => $clientes[0]['clitpr'], 'clirgn' => $clientes[0]['clirgn'], 'clieml' => $clientes[0]['clieml'])
 );
@@ -125,4 +126,4 @@ if($resultado['msn']=="OK"){
 	$resultado2 = $cliente->call('GenPedido',$INPedido);
 }
 print_r($resultado2);
-</code></pre>
+```
